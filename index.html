@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>災難應變翻譯助手 | Disaster Response Translation Assistant</title>
+    <meta name="description" content="Mobile translation app for Amis-Mandarin communication during emergencies in Taiwan">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip Navigation -->
+    <a href="#main" class="sr-only focus:not-sr-only">跳至主要內容 Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="app-header">
+        <h1 class="app-title">
+            <span class="title-chinese">災難應變翻譯助手</span>
+            <span class="title-english">Disaster Response Translation</span>
+        </h1>
+        <button id="settings-btn" class="settings-btn" aria-label="設定 Settings">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+        </button>
+    </header>
+
+    <main id="main" class="main-content">
+        <!-- Mode Selection Screen -->
+        <section id="mode-selection" class="screen active">
+            <div class="mode-intro">
+                <h2>選擇模式 Choose Mode</h2>
+                <p class="mode-description">選擇您的角色以開始使用翻譯助手<br>Choose your role to start using the translation assistant</p>
+            </div>
+            
+            <div class="mode-buttons">
+                <button id="volunteer-mode-btn" class="mode-btn volunteer-btn">
+                    <div class="mode-icon">👩‍⚕️</div>
+                    <div class="mode-text">
+                        <h3>志工模式</h3>
+                        <p>Volunteer Mode</p>
+                        <small>醫療人員與volunteers</small>
+                    </div>
+                </button>
+                
+                <button id="elder-mode-btn" class="mode-btn elder-btn">
+                    <div class="mode-icon">👵</div>
+                    <div class="mode-text">
+                        <h3>長者模式</h3>
+                        <p>Elder Mode</p>
+                        <small>阿美族長者使用</small>
+                    </div>
+                </button>
+            </div>
+            
+            <button id="emergency-contacts-btn" class="emergency-btn">
+                <span class="emergency-icon">🚨</span>
+                緊急聯絡 Emergency Contacts
+            </button>
+        </section>
+
+        <!-- Volunteer Mode -->
+        <section id="volunteer-mode" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="back-from-volunteer" aria-label="返回 Back">‹</button>
+                <h2>志工模式 Volunteer Mode</h2>
+            </div>
+            
+            <div class="phrases-section">
+                <h3>常用短語 Common Phrases</h3>
+                
+                <div class="phrase-card" id="greeting-card">
+                    <div class="phrase-header">
+                        <h4>問候與關懷 Greeting & Care</h4>
+                        <button class="audio-btn" data-phrase="greeting" aria-label="播放發音 Play pronunciation">🔊</button>
+                    </div>
+                    <div class="phrase-content">
+                        <div class="amis-text">ina, mamaan kita?</div>
+                        <div class="pronunciation">ee-na, ma-ma-an KEE-ta</div>
+                        <div class="mandarin-text">阿姨，我們哪裡不舒服呢？</div>
+                        <div class="context">
+                            <details>
+                                <summary>使用情境 Context</summary>
+                                <p>接近可能身體不適的長者時的尊重問候。無論他們是否說中文都要使用 - 展現文化尊重與溫暖。</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phrase-card" id="farewell-card">
+                    <div class="phrase-header">
+                        <h4>告別與祝福 Farewell & Blessing</h4>
+                        <button class="audio-btn" data-phrase="farewell" aria-label="播放發音 Play pronunciation">🔊</button>
+                    </div>
+                    <div class="phrase-content">
+                        <div class="amis-text">Naonen han to. Pinaon to rakat.</div>
+                        <div class="pronunciation">na-OH-nen han to. pee-NA-on to RA-kat</div>
+                        <div class="mandarin-text">慢走，路上小心～</div>
+                        <div class="context">
+                            <details>
+                                <summary>使用情境 Context</summary>
+                                <p>當長者離開諮詢或庇護所時的溫暖告別。展現關懷與文化尊重。</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="vocabulary-section">
+                <h3>詞彙解析 Word Breakdown</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <strong>mamaan</strong> = 怎麼了<br>
+                        <small>ma-MA-an - shows concern</small>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>kita</strong> = 我們（包含聽者）<br>
+                        <small>KEE-ta - inclusive "we"</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="emergency-vocab">
+                <h3>緊急詞彙 Emergency Vocabulary</h3>
+                <div class="emergency-grid">
+                    <button class="emergency-word-btn" data-word="masakit">
+                        <strong>masakit</strong><br>
+                        <small>痛 pain</small>
+                    </button>
+                    <button class="emergency-word-btn" data-word="tabaki">
+                        <strong>tabaki ko</strong><br>
+                        <small>幫助我 help me</small>
+                    </button>
+                    <button class="emergency-word-btn" data-word="fangcalay">
+                        <strong>fangcalay</strong><br>
+                        <small>醫生 doctor</small>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elder Mode -->
+        <section id="elder-mode" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="back-from-elder" aria-label="返回 Back">‹</button>
+                <h2>長者模式 Elder Mode</h2>
+            </div>
+            
+            <div class="voice-input-section">
+                <h3>語音輸入 Voice Input</h3>
+                <button id="mic-btn" class="mic-button" aria-label="開始錄音 Start recording">
+                    <div class="mic-icon">🎤</div>
+                    <span>按住說話<br>Press to speak</span>
+                </button>
+                <div id="voice-feedback" class="voice-feedback hidden">
+                    <p>正在聆聽... Listening...</p>
+                </div>
+            </div>
+            
+            <div class="text-input-section">
+                <h3>文字輸入 Text Input</h3>
+                <textarea id="amis-input" class="form-control" placeholder="請輸入阿美族語... Enter Amis text..." rows="3"></textarea>
+                <button id="translate-btn" class="btn btn--primary">翻譯 Translate</button>
+            </div>
+            
+            <div id="translation-output" class="translation-output hidden">
+                <h3>翻譯結果 Translation Result</h3>
+                <div class="translated-text"></div>
+                <button class="audio-btn" id="play-translation" aria-label="播放翻譯 Play translation">🔊</button>
+            </div>
+            
+            <div class="common-phrases-elder">
+                <h3>常用短語 Common Phrases</h3>
+                <div class="phrase-buttons">
+                    <button class="phrase-quick-btn" data-amis="masakit" data-mandarin="我很痛">
+                        masakit<br><small>我很痛</small>
+                    </button>
+                    <button class="phrase-quick-btn" data-amis="tabaki ko" data-mandarin="請幫助我">
+                        tabaki ko<br><small>請幫助我</small>
+                    </button>
+                    <button class="phrase-quick-btn" data-amis="mafana' ako" data-mandarin="我餓了">
+                        mafana' ako<br><small>我餓了</small>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section id="emergency-contacts" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="back-from-emergency" aria-label="返回 Back">‹</button>
+                <h2>緊急聯絡 Emergency Contacts</h2>
+            </div>
+            
+            <div class="emergency-list">
+                <div class="contact-card emergency-card">
+                    <div class="contact-icon">🚨</div>
+                    <div class="contact-info">
+                        <h3>緊急救難 Emergency</h3>
+                        <p class="contact-number">119</p>
+                        <small>消防救護 Fire & Medical</small>
+                    </div>
+                    <button class="call-btn" data-number="119">撥打 Call</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">👮</div>
+                    <div class="contact-info">
+                        <h3>警察 Police</h3>
+                        <p class="contact-number">110</p>
+                        <small>警察局 Police Station</small>
+                    </div>
+                    <button class="call-btn" data-number="110">撥打 Call</button>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">🌊</div>
+                    <div class="contact-info">
+                        <h3>災害通報 Disaster Report</h3>
+                        <p class="contact-number">1991</p>
+                        <small>災害應變中心</small>
+                    </div>
+                    <button class="call-btn" data-number="1991">撥打 Call</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal hidden" role="dialog" aria-labelledby="settings-title">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="settings-title">設定 Settings</h2>
+                    <button class="modal-close" aria-label="關閉 Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="text-size">文字大小 Text Size</label>
+                        <select id="text-size" class="form-control">
+                            <option value="small">小 Small</option>
+                            <option value="medium" selected>中 Medium</option>
+                            <option value="large">大 Large</option>
+                            <option value="extra-large">特大 Extra Large</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="contrast-mode">對比模式 Contrast Mode</label>
+                        <select id="contrast-mode" class="form-control">
+                            <option value="standard" selected>標準 Standard</option>
+                            <option value="high-contrast">高對比 High Contrast</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="sound-toggle">音效 Sound Effects</label>
+                        <select id="sound-toggle" class="form-control">
+                            <option value="on" selected>開啟 On</option>
+                            <option value="off">關閉 Off</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
