@@ -817,6 +817,128 @@ body {
   outline-offset: 2px;
 }
 
+/* Community Banner */
+.community-banner {
+  background: var(--color-bg-3);
+  border: 1px solid rgba(var(--color-success-rgb), 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  margin-bottom: var(--space-24);
+  text-align: center;
+}
+
+.community-content h2 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-success);
+  margin-bottom: var(--space-8);
+}
+
+.community-content p {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-8);
+}
+
+.community-subtitle {
+  font-size: var(--font-size-sm) !important;
+  color: var(--color-text-secondary) !important;
+  font-style: italic;
+}
+
+/* Community Resources Section */
+.community-resources {
+  margin-bottom: var(--space-32);
+}
+
+.community-resources h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+  text-align: center;
+}
+
+.resource-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .resource-cards {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.resource-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  display: flex;
+  gap: var(--space-16);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.resource-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.resource-card.featured {
+  background: var(--color-bg-1);
+  border-color: rgba(var(--color-teal-500-rgb), 0.3);
+}
+
+.resource-icon {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.resource-content {
+  flex: 1;
+}
+
+.resource-content h4 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.resource-content p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-base);
+}
+
+.resource-description {
+  font-size: var(--font-size-sm) !important;
+  color: var(--color-text-secondary) !important;
+  margin-bottom: var(--space-12) !important;
+}
+
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+
+.resource-link:hover {
+  text-decoration: none;
+}
+
 /* Main Content */
 .main-content {
   padding: var(--space-16);
@@ -895,7 +1017,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
 }
 
 .mode-btn {
@@ -959,13 +1081,24 @@ body {
   color: var(--color-text-secondary);
 }
 
-/* Emergency Button */
-.emergency-btn {
-  background: var(--color-bg-4);
-  border: 2px solid rgba(var(--color-error-rgb), 0.3);
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .action-buttons {
+    flex-direction: row;
+    gap: var(--space-12);
+  }
+}
+
+.emergency-btn, .cultural-btn {
+  border: 2px solid;
   border-radius: var(--radius-lg);
   padding: var(--space-16);
-  color: var(--color-error);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
@@ -975,6 +1108,13 @@ body {
   justify-content: center;
   gap: var(--space-8);
   min-height: 64px;
+  flex: 1;
+}
+
+.emergency-btn {
+  background: var(--color-bg-4);
+  border-color: rgba(var(--color-error-rgb), 0.3);
+  color: var(--color-error);
 }
 
 .emergency-btn:hover {
@@ -982,13 +1122,51 @@ body {
   border-color: var(--color-error);
 }
 
-.emergency-btn:focus-visible {
+.cultural-btn {
+  background: var(--color-bg-5);
+  border-color: rgba(var(--color-teal-500-rgb), 0.3);
+  color: var(--color-primary);
+}
+
+.cultural-btn:hover {
+  background: rgba(var(--color-teal-500-rgb), 0.15);
+  border-color: var(--color-primary);
+}
+
+.emergency-btn:focus-visible, .cultural-btn:focus-visible {
   outline: var(--focus-outline);
   outline-offset: 2px;
 }
 
-.emergency-icon {
+.emergency-icon, .cultural-icon {
   font-size: var(--font-size-xl);
+}
+
+/* Cultural Notice */
+.cultural-notice {
+  background: var(--color-bg-5);
+  border: 1px solid rgba(var(--color-teal-500-rgb), 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.notice-content {
+  display: flex;
+  gap: var(--space-12);
+  align-items: flex-start;
+}
+
+.notice-icon {
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+}
+
+.notice-content p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
 }
 
 /* Phrase Cards */
@@ -1014,6 +1192,16 @@ body {
 
 .phrase-card:hover {
   box-shadow: var(--shadow-md);
+}
+
+.greeting-card {
+  border-left: 4px solid var(--color-success);
+  background: var(--color-bg-3);
+}
+
+.farewell-card {
+  border-left: 4px solid var(--color-warning);
+  background: var(--color-bg-6);
 }
 
 .phrase-header {
@@ -1081,6 +1269,12 @@ body {
   line-height: 1.4;
 }
 
+.english-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
 .context details {
   margin-top: var(--space-12);
 }
@@ -1090,7 +1284,7 @@ body {
   color: var(--color-text-secondary);
   cursor: pointer;
   padding: var(--space-8);
-  background: var(--color-bg-5);
+  background: var(--color-bg-8);
   border-radius: var(--radius-sm);
   transition: background var(--duration-fast) var(--ease-standard);
 }
@@ -1109,49 +1303,100 @@ body {
   line-height: 1.5;
 }
 
-/* Vocabulary Section */
-.vocabulary-section {
+/* Disaster Phrases */
+.disaster-phrases {
   margin-bottom: var(--space-32);
 }
 
-.vocabulary-section h3 {
+.disaster-phrases h3 {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-16);
   color: var(--color-text);
 }
 
-.vocab-grid {
+.disaster-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-12);
 }
 
 @media (min-width: 640px) {
-  .vocab-grid {
+  .disaster-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.vocab-item {
+@media (min-width: 768px) {
+  .disaster-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.disaster-phrase-card {
   background: var(--color-surface);
   border: 1px solid var(--color-card-border);
   border-radius: var(--radius-base);
   padding: var(--space-16);
-  font-size: var(--font-size-base);
-  line-height: 1.5;
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
-.vocab-item strong {
+.disaster-phrase-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.phrase-mini {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: center;
+  position: relative;
+}
+
+.phrase-mini strong {
+  font-size: var(--font-size-lg);
   color: var(--color-primary);
   font-weight: var(--font-weight-semibold);
 }
 
-.vocab-item small {
-  color: var(--color-text-secondary);
+.phrase-mini .pronunciation {
   font-size: var(--font-size-sm);
+  font-family: var(--font-family-mono);
+}
+
+.phrase-mini .translation {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.mini-audio-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 32px;
+  height: 32px;
+  color: var(--color-btn-primary-text);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.mini-audio-btn:hover {
+  background: var(--color-primary-hover);
+  transform: scale(1.1);
 }
 
 /* Emergency Vocabulary */
+.emergency-vocab {
+  margin-bottom: var(--space-32);
+}
+
 .emergency-vocab h3 {
   font-size: var(--font-size-xl);
   margin-bottom: var(--space-16);
@@ -1183,6 +1428,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: var(--space-4);
 }
 
 .emergency-word-btn:hover {
@@ -1194,6 +1440,22 @@ body {
 .emergency-word-btn:focus-visible {
   outline: var(--focus-outline);
   outline-offset: 2px;
+}
+
+.emergency-word-btn strong {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.emergency-word-btn .pronunciation {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+.emergency-word-btn .translation {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Elder Mode Styles */
@@ -1342,6 +1604,7 @@ body {
   flex-direction: column;
   justify-content: center;
   color: var(--color-text);
+  gap: var(--space-4);
 }
 
 .phrase-quick-btn:hover {
@@ -1355,7 +1618,80 @@ body {
   outline-offset: 2px;
 }
 
+.phrase-amis {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+/* Cultural Guidelines */
+.cultural-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.guideline-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  display: flex;
+  gap: var(--space-16);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.guideline-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.guideline-icon {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.guideline-text h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.guideline-text p {
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+  line-height: 1.5;
+}
+
+.guideline-english {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--font-size-sm) !important;
+  font-style: italic !important;
+}
+
 /* Emergency Contacts */
+.emergency-context {
+  background: var(--color-bg-4);
+  border: 1px solid rgba(var(--color-error-rgb), 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.context-text {
+  color: var(--color-error);
+  font-size: var(--font-size-base);
+  margin: 0;
+  line-height: 1.5;
+}
+
 .emergency-list {
   display: flex;
   flex-direction: column;
@@ -1381,6 +1717,11 @@ body {
 .emergency-card {
   border-color: rgba(var(--color-error-rgb), 0.3);
   background: var(--color-bg-4);
+}
+
+.local-card {
+  border-color: rgba(var(--color-teal-500-rgb), 0.3);
+  background: var(--color-bg-1);
 }
 
 .contact-icon {
