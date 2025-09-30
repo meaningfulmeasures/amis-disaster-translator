@@ -3,424 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>災難應變翻譯助手 | Disaster Response Translation Assistant</title>
-    <meta name="description" content="Mobile translation app for Amis-Mandarin communication during emergencies in Taiwan">
+    <title>台灣災害應變資源 | Taiwan Emergency Resources</title>
+    <meta name="description" content="台灣災害應變緊急聯絡資訊和社群資源 - Taiwan Emergency Contacts and Community Resources">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Skip Navigation -->
-    <a href="#main" class="sr-only focus:not-sr-only">跳至主要內容 Skip to main content</a>
-    
-    <!-- Header -->
-    <header class="app-header">
-        <h1 class="app-title">
-            <span class="title-chinese">災難應變翻譯助手</span>
-            <span class="title-english">Disaster Response Translation</span>
-        </h1>
-        <button id="settings-btn" class="settings-btn" aria-label="設定 Settings">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-            </svg>
-        </button>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">
+                🚨 災害應變資源
+                <span class="header__subtitle">Emergency Resources</span>
+            </h1>
+        </div>
     </header>
 
-    <main id="main" class="main-content">
-        <!-- Community Acknowledgment Banner -->
-        <section id="community-banner" class="community-banner">
-            <div class="community-content">
-                <h2>社區資源致謝 Community Resources</h2>
-                <p>感謝社區創作者為2025年9月花蓮光復溪水氾濫災害應變所製作的阿美語資源</p>
-                <p class="community-subtitle">Thank you to community creators for Amis language resources for Hualien Guangfu flooding disaster response</p>
-            </div>
-        </section>
+    <main class="main">
+        <div class="container">
+            <!-- Important Notice -->
+            <section class="notice-section" aria-label="重要提醒">
+                <div class="notice notice--warning">
+                    <h2 class="notice__title">⚠️ 重要提醒 Important Notice</h2>
+                    <p class="notice__content">
+                        <strong>本平台不提供翻譯功能</strong>，僅提供緊急聯絡資訊和社群資源連結。如需準確的阿美語翻譯，請聯繫當地社區工作者或使用下方社群資源。
+                    </p>
+                    <p class="notice__content--small">
+                        This platform does NOT provide translation services. For accurate Amis language support, please contact local community workers or use the community resources listed below.
+                    </p>
+                </div>
+            </section>
 
-        <!-- Mode Selection Screen -->
-        <section id="mode-selection" class="screen active">
-            <!-- Community Resources Section -->
-            <div class="community-resources">
-                <h3>社區資源 Community Resources</h3>
-                <div class="resource-cards">
-                    <div class="resource-card featured">
-                        <div class="resource-icon">🎵</div>
-                        <div class="resource-content">
-                            <h4>都市美族生活日常｜@amisitokay</h4>
-                            <p>災難應變阿美語音檔</p>
-                            <p class="resource-description">專為花蓮光復災情設計的音檔資源</p>
-                            <a href="https://portaly.cc/amisitokay/pages/fataan" target="_blank" class="resource-link btn btn--primary">
-                                <span>🔗 聆聽音檔 Listen to Audio</span>
-                            </a>
+            <!-- Emergency Contacts -->
+            <section class="emergency-section" aria-label="緊急聯絡資訊">
+                <h2 class="section__title">🚨 緊急聯絡 Emergency Contacts</h2>
+                
+                <div class="contacts-grid">
+                    <div class="contact-group">
+                        <h3 class="contact-group__title">全國緊急專線 National Emergency</h3>
+                        <div class="contacts" id="national-contacts">
+                            <!-- National contacts will be populated by JavaScript -->
                         </div>
                     </div>
-                    <div class="resource-card">
-                        <div class="resource-icon">📚</div>
-                        <div class="resource-content">
-                            <h4>@langodlin</h4>
-                            <p>額外阿美語資源</p>
-                            <p class="resource-description">提供補充的災難應變語言材料</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mode-intro">
-                <h2>選擇模式 Choose Mode</h2>
-                <p class="mode-description">選擇您的角色以開始使用翻譯助手<br>Choose your role to start using the translation assistant</p>
-            </div>
-            
-            <div class="mode-buttons">
-                <button id="volunteer-mode-btn" class="mode-btn volunteer-btn">
-                    <div class="mode-icon">👩‍⚕️</div>
-                    <div class="mode-text">
-                        <h3>志工模式</h3>
-                        <p>Volunteer Mode</p>
-                        <small>醫療人員與志工使用</small>
-                    </div>
-                </button>
-                
-                <button id="elder-mode-btn" class="mode-btn elder-btn">
-                    <div class="mode-icon">👵</div>
-                    <div class="mode-text">
-                        <h3>長者模式</h3>
-                        <p>Elder Mode</p>
-                        <small>阿美族長者使用</small>
-                    </div>
-                </button>
-            </div>
-            
-            <div class="action-buttons">
-                <button id="emergency-contacts-btn" class="emergency-btn">
-                    <span class="emergency-icon">🚨</span>
-                    緊急聯絡 Emergency Contacts
-                </button>
-                
-                <button id="cultural-guide-btn" class="cultural-btn">
-                    <span class="cultural-icon">🤝</span>
-                    文化指導 Cultural Guidelines
-                </button>
-            </div>
-        </section>
 
-        <!-- Volunteer Mode -->
-        <section id="volunteer-mode" class="screen">
-            <div class="screen-header">
-                <button class="back-btn" id="back-from-volunteer" aria-label="返回 Back">‹</button>
-                <h2>志工模式 Volunteer Mode</h2>
-            </div>
-            
-            <div class="cultural-notice">
-                <div class="notice-content">
-                    <span class="notice-icon">💝</span>
-                    <p><strong>文化提醒:</strong> 使用這些短語時請保持尊重與溫暖的態度，即使在緊急情況下也要展現文化敏感性</p>
-                </div>
-            </div>
-            
-            <div class="phrases-section">
-                <h3>核心短語 Core Phrases</h3>
-                
-                <div class="phrase-card greeting-card">
-                    <div class="phrase-header">
-                        <h4>關懷問候 Caring Greeting</h4>
-                        <button class="audio-btn" data-phrase="greeting" aria-label="播放發音 Play pronunciation">🔊</button>
-                    </div>
-                    <div class="phrase-content">
-                        <div class="amis-text">ina, mamaan kita?</div>
-                        <div class="pronunciation">ee-na, ma-ma-an KEE-ta</div>
-                        <div class="mandarin-text">阿姨，我們哪裡不舒服呢？</div>
-                        <div class="english-text">"Auntie, where are we feeling unwell?"</div>
-                        <div class="context">
-                            <details>
-                                <summary>文化背景 Cultural Context</summary>
-                                <p><strong>使用時機:</strong> 接近可能身體不適的長者時</p>
-                                <p><strong>文化意義:</strong> 使用'ina'(阿姨)表示尊重，'kita'創造包容感，體現阿美族重視集體的價值觀</p>
-                                <p><strong>重要性:</strong> 即使長者說中文，使用阿美語問候展現文化尊重</p>
-                            </details>
+                    <div class="contact-group">
+                        <h3 class="contact-group__title">花蓮在地聯絡 Local Hualien Contacts</h3>
+                        <div class="contacts" id="local-contacts">
+                            <!-- Local contacts will be populated by JavaScript -->
                         </div>
                     </div>
                 </div>
-                
-                <div class="phrase-card farewell-card">
-                    <div class="phrase-header">
-                        <h4>溫暖告別 Warm Farewell</h4>
-                        <button class="audio-btn" data-phrase="farewell" aria-label="播放發音 Play pronunciation">🔊</button>
-                    </div>
-                    <div class="phrase-content">
-                        <div class="amis-text">Naonen han to. Pinaon to rakat.</div>
-                        <div class="pronunciation">na-OH-nen han to. pee-NA-on to RA-kat</div>
-                        <div class="mandarin-text">慢走，路上小心～</div>
-                        <div class="english-text">"Take care, be careful on the road"</div>
-                        <div class="context">
-                            <details>
-                                <summary>文化背景 Cultural Context</summary>
-                                <p><strong>使用時機:</strong> 長者離開諮詢或庇護所時</p>
-                                <p><strong>文化重要性:</strong> 適當的告別在阿美文化中很重要，匆忙離開可能顯得無禮</p>
-                                <p><strong>溫暖表達:</strong> 展現對長者持續安全的關心</p>
-                            </details>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="disaster-phrases">
-                <h3>災難特定短語 Disaster-Specific Phrases</h3>
-                <div class="disaster-grid">
-                    <div class="disaster-phrase-card">
-                        <div class="phrase-mini">
-                            <strong>ranom</strong> <span class="pronunciation">(ra-NOM)</span><br>
-                            <span class="translation">水/洪水 water/flood</span>
-                            <button class="mini-audio-btn" data-word="ranom">🔊</button>
-                        </div>
-                    </div>
-                    <div class="disaster-phrase-card">
-                        <div class="phrase-mini">
-                            <strong>ayaw kiso sakolayay</strong><br>
-                            <span class="pronunciation">(ah-YAW kee-so sa-ko-LAI-ai)</span><br>
-                            <span class="translation">你要小心 you be careful</span>
-                            <button class="mini-audio-btn" data-word="ayaw">🔊</button>
-                        </div>
-                    </div>
-                    <div class="disaster-phrase-card">
-                        <div class="phrase-mini">
-                            <strong>kafana'</strong> <span class="pronunciation">(ka-fa-NA)</span><br>
-                            <span class="translation">食物 food</span>
-                            <button class="mini-audio-btn" data-word="kafana">🔊</button>
-                        </div>
-                    </div>
-                    <div class="disaster-phrase-card">
-                        <div class="phrase-mini">
-                            <strong>fafoy</strong> <span class="pronunciation">(fa-FOI)</span><br>
-                            <span class="translation">房子/住所 house/shelter</span>
-                            <button class="mini-audio-btn" data-word="fafoy">🔊</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="emergency-vocab">
-                <h3>緊急醫療詞彙 Emergency Medical Vocabulary</h3>
-                <div class="emergency-grid">
-                    <button class="emergency-word-btn" data-word="masakit">
-                        <strong>masakit</strong><br>
-                        <small class="pronunciation">ma-sa-KEET</small><br>
-                        <span class="translation">痛 pain</span>
-                    </button>
-                    <button class="emergency-word-btn" data-word="tabaki">
-                        <strong>tabaki ko</strong><br>
-                        <small class="pronunciation">ta-BA-ki ko</small><br>
-                        <span class="translation">幫助我 help me</span>
-                    </button>
-                    <button class="emergency-word-btn" data-word="fangcalay">
-                        <strong>fangcalay</strong><br>
-                        <small class="pronunciation">fang-cha-LAI</small><br>
-                        <span class="translation">醫生 doctor</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Elder Mode -->
-        <section id="elder-mode" class="screen">
-            <div class="screen-header">
-                <button class="back-btn" id="back-from-elder" aria-label="返回 Back">‹</button>
-                <h2>長者模式 Elder Mode</h2>
-            </div>
-            
-            <div class="voice-input-section">
-                <h3>語音輸入 Voice Input</h3>
-                <button id="mic-btn" class="mic-button" aria-label="開始錄音 Start recording">
-                    <div class="mic-icon">🎤</div>
-                    <span>按住說話<br>Press to speak</span>
-                </button>
-                <div id="voice-feedback" class="voice-feedback hidden">
-                    <p>正在聆聽... Listening...</p>
-                </div>
-            </div>
-            
-            <div class="text-input-section">
-                <h3>文字輸入 Text Input</h3>
-                <textarea id="amis-input" class="form-control" placeholder="請輸入阿美族語... Enter Amis text..." rows="3"></textarea>
-                <button id="translate-btn" class="btn btn--primary">翻譯 Translate</button>
-            </div>
-            
-            <div id="translation-output" class="translation-output hidden">
-                <h3>翻譯結果 Translation Result</h3>
-                <div class="translated-text"></div>
-                <button class="audio-btn" id="play-translation" aria-label="播放翻譯 Play translation">🔊</button>
-            </div>
-            
-            <div class="common-phrases-elder">
-                <h3>常用短語 Common Phrases</h3>
-                <div class="phrase-buttons">
-                    <button class="phrase-quick-btn" data-amis="masakit" data-mandarin="我很痛">
-                        <span class="phrase-amis">masakit</span><br>
-                        <small>我很痛 I'm in pain</small>
-                    </button>
-                    <button class="phrase-quick-btn" data-amis="tabaki ko" data-mandarin="請幫助我">
-                        <span class="phrase-amis">tabaki ko</span><br>
-                        <small>請幫助我 Please help me</small>
-                    </button>
-                    <button class="phrase-quick-btn" data-amis="mafana' ako" data-mandarin="我餓了">
-                        <span class="phrase-amis">mafana' ako</span><br>
-                        <small>我餓了 I'm hungry</small>
-                    </button>
-                    <button class="phrase-quick-btn" data-amis="matektek ako" data-mandarin="我口渴">
-                        <span class="phrase-amis">matektek ako</span><br>
-                        <small>我口渴 I'm thirsty</small>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cultural Guidelines -->
-        <section id="cultural-guide" class="screen">
-            <div class="screen-header">
-                <button class="back-btn" id="back-from-cultural" aria-label="返回 Back">‹</button>
-                <h2>文化準則 Cultural Guidelines</h2>
-            </div>
-            
-            <div class="cultural-content">
-                <div class="guideline-card">
-                    <div class="guideline-icon">🤝</div>
-                    <div class="guideline-text">
-                        <h3>尊重的稱呼 Respectful Address</h3>
-                        <p>使用'ina'（阿姨/媽媽）對阿美族長者女性表示尊重，無論血緣關係。這展現了對長者的文化敬意。</p>
-                        <p class="guideline-english">Use 'ina' (auntie/mother) to show respect to Amis elder women, regardless of blood relation.</p>
-                    </div>
-                </div>
-                
-                <div class="guideline-card">
-                    <div class="guideline-icon">🌟</div>
-                    <div class="guideline-text">
-                        <h3>包容性語言 Inclusive Language</h3>
-                        <p>'kita'這個詞創造了即時的聯繫，顯示你關心這個人作為你社區的一部分，體現阿美族重視集體和包容的價值觀。</p>
-                        <p class="guideline-english">'kita' creates instant connection, showing you care about the person as part of your community.</p>
-                    </div>
-                </div>
-                
-                <div class="guideline-card">
-                    <div class="guideline-icon">💝</div>
-                    <div class="guideline-text">
-                        <h3>溫暖的告別 Warm Farewell</h3>
-                        <p>在阿美文化中，花時間適當告別很重要 - 匆忙離開可能顯得無禮。即使在緊急情況下也要表達關懷。</p>
-                        <p class="guideline-english">Taking time for proper farewells is important in Amis culture - rushing away may seem rude.</p>
-                    </div>
-                </div>
-                
-                <div class="guideline-card">
-                    <div class="guideline-icon">🆘</div>
-                    <div class="guideline-text">
-                        <h3>災難應變溝通 Emergency Communication</h3>
-                        <p>即使在緊急情況下，保持文化敏感性和尊重是建立信任的關鍵。溫和的語調能幫助緩解緊張情緒。</p>
-                        <p class="guideline-english">Even in emergencies, maintaining cultural sensitivity and respect is key to building trust.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Emergency Contacts -->
-        <section id="emergency-contacts" class="screen">
-            <div class="screen-header">
-                <button class="back-btn" id="back-from-emergency" aria-label="返回 Back">‹</button>
-                <h2>緊急聯絡 Emergency Contacts</h2>
-            </div>
-            
-            <div class="emergency-context">
-                <p class="context-text">
-                    <strong>災害背景:</strong> 2025年9月花蓮光復溪水氾濫<br>
-                    <strong>受影響地區:</strong> 花蓮光復、馬太鞍溪、Fata'an部落
+            <!-- Community Resources -->
+            <section class="resources-section" aria-label="社群資源">
+                <h2 class="section__title">🎵 社群語言資源 Community Language Resources</h2>
+                <p class="section__description">
+                    以下資源由阿美族社群工作者創建，提供專業的語言支援和音檔資源
                 </p>
-            </div>
-            
-            <div class="emergency-list">
-                <div class="contact-card emergency-card">
-                    <div class="contact-icon">🚨</div>
-                    <div class="contact-info">
-                        <h3>緊急救難 Emergency</h3>
-                        <p class="contact-number">119</p>
-                        <small>消防救護 Fire & Medical</small>
-                    </div>
-                    <button class="call-btn" data-number="119">撥打 Call</button>
-                </div>
                 
-                <div class="contact-card">
-                    <div class="contact-icon">👮</div>
-                    <div class="contact-info">
-                        <h3>警察 Police</h3>
-                        <p class="contact-number">110</p>
-                        <small>警察局 Police Station</small>
-                    </div>
-                    <button class="call-btn" data-number="110">撥打 Call</button>
+                <div class="resources-grid" id="community-resources">
+                    <!-- Community resources will be populated by JavaScript -->
                 </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">🌊</div>
-                    <div class="contact-info">
-                        <h3>災害通報 Disaster Report</h3>
-                        <p class="contact-number">1991</p>
-                        <small>災害應變中心</small>
-                    </div>
-                    <button class="call-btn" data-number="1991">撥打 Call</button>
-                </div>
-                
-                <div class="contact-card local-card">
-                    <div class="contact-icon">🏥</div>
-                    <div class="contact-info">
-                        <h3>花蓮醫院 Hualien Hospital</h3>
-                        <p class="contact-number">03-8358141</p>
-                        <small>醫療緊急</small>
-                    </div>
-                    <button class="call-btn" data-number="03-8358141">撥打 Call</button>
-                </div>
-                
-                <div class="contact-card local-card">
-                    <div class="contact-icon">🏢</div>
-                    <div class="contact-info">
-                        <h3>光復鄉公所 Guangfu Township</h3>
-                        <p class="contact-number">03-8704058</p>
-                        <small>當地政府</small>
-                    </div>
-                    <button class="call-btn" data-number="03-8704058">撥打 Call</button>
-                </div>
-            </div>
-        </section>
 
-        <!-- Settings Modal -->
-        <div id="settings-modal" class="modal hidden" role="dialog" aria-labelledby="settings-title">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 id="settings-title">設定 Settings</h2>
-                    <button class="modal-close" aria-label="關閉 Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="setting-group">
-                        <label for="text-size">文字大小 Text Size</label>
-                        <select id="text-size" class="form-control">
-                            <option value="small">小 Small</option>
-                            <option value="medium" selected>中 Medium</option>
-                            <option value="large">大 Large</option>
-                            <option value="extra-large">特大 Extra Large</option>
-                        </select>
-                    </div>
-                    
-                    <div class="setting-group">
-                        <label for="contrast-mode">對比模式 Contrast Mode</label>
-                        <select id="contrast-mode" class="form-control">
-                            <option value="standard" selected>標準 Standard</option>
-                            <option value="high-contrast">高對比 High Contrast</option>
-                        </select>
-                    </div>
-                    
-                    <div class="setting-group">
-                        <label for="sound-toggle">音效 Sound Effects</label>
-                        <select id="sound-toggle" class="form-control">
-                            <option value="on" selected>開啟 On</option>
-                            <option value="off">關閉 Off</option>
-                        </select>
+                <div class="contributors">
+                    <h3 class="contributors__title">感謝貢獻者 Community Contributors</h3>
+                    <div class="contributors-list" id="contributors-list">
+                        <!-- Contributors will be populated by JavaScript -->
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Language Support Info -->
+            <section class="support-section" aria-label="語言支援資訊">
+                <div class="notice notice--info">
+                    <h2 class="notice__title">📞 語言支援 Language Support</h2>
+                    <p class="notice__content">
+                        緊急情況下，請優先撥打 <strong>119</strong> 或 <strong>110</strong>。如需阿美語溝通協助，請利用上方社群資源或尋求當地母語人士協助。
+                    </p>
+                    <p class="notice__content--small">
+                        In emergencies, call 119 or 110 first. For Amis language communication assistance, use the community resources above or seek help from local native speakers.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Quick Access -->
+            <section class="quick-access" aria-label="快速撥號">
+                <h2 class="section__title">⚡ 快速撥號 Quick Access</h2>
+                <div class="quick-buttons">
+                    <a href="tel:119" class="btn btn--emergency btn--large" id="emergency-119">
+                        <span class="btn__icon">🚨</span>
+                        <span class="btn__text">119<br><small>火警/救護車</small></span>
+                    </a>
+                    <a href="tel:110" class="btn btn--emergency btn--large" id="emergency-110">
+                        <span class="btn__icon">👮</span>
+                        <span class="btn__text">110<br><small>警察</small></span>
+                    </a>
+                </div>
+            </section>
         </div>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="disclaimers">
+                <ul class="disclaimers__list">
+                    <li>🚫 本平台不提供翻譯服務</li>
+                    <li>✅ 請使用官方認證的語言資源</li>
+                    <li>🚨 緊急情況請立即撥打119或110</li>
+                    <li>❤️ 感謝社群貢獻者的無私分享</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
 </body>
