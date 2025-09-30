@@ -1,109 +1,8 @@
 // Enhanced Disaster Response Translation App - JavaScript
 class DisasterTranslationApp {
     constructor() {
-        // Enhanced app data based on provided JSON and community resources
-        this.phraseData = {
-            greeting: {
-                amis: "ina, mamaan kita?",
-                pronunciation: "ee-na, ma-ma-an KEE-ta",
-                mandarin: "阿姨，我們哪裡不舒服呢？",
-                english: "Auntie, where are we feeling unwell?",
-                context: "接近可能身體不適的長者時的尊重問候。無論他們是否說中文都要使用 - 展現文化尊重與溫暖。",
-                usage: "醫療檢查、初次接觸長者時",
-                culturalNote: "使用'ina'(阿姨/媽媽)對阿美族長者女性表示尊重，無論血緣關係"
-            },
-            farewell: {
-                amis: "Naonen han to. Pinaon to rakat.",
-                pronunciation: "na-OH-nen han to. pee-NA-on to RA-kat",
-                mandarin: "慢走，路上小心～",
-                english: "Take care, be careful on the road",
-                context: "當長者離開諮詢或庇護所時的溫暖告別。展現關懷與文化尊重。",
-                usage: "醫療諮詢後、長者離開時",
-                culturalNote: "適當的告別在阿美文化中很重要 - 匆忙離開可能顯得無禮"
-            }
-        };
 
-        this.emergencyVocabulary = {
-            masakit: {
-                amis: "masakit",
-                pronunciation: "ma-sa-KEET",
-                mandarin: "痛",
-                english: "pain/hurt",
-                context: "描述疼痛或不適的基本詞彙",
-                usage: "醫療評估時"
-            },
-            tabaki: {
-                amis: "tabaki ko",
-                pronunciation: "ta-BA-ki ko",
-                mandarin: "幫助我",
-                english: "help me",
-                context: "請求協助",
-                usage: "緊急求助時"
-            },
-            fangcalay: {
-                amis: "fangcalay",
-                pronunciation: "fang-cha-LAI",
-                mandarin: "醫生",
-                english: "doctor",
-                context: "醫療專業人員",
-                usage: "尋求醫療協助時"
-            }
-        };
 
-        this.disasterVocabulary = {
-            ranom: {
-                amis: "ranom",
-                pronunciation: "ra-NOM",
-                mandarin: "水",
-                english: "water",
-                context: "災難中的水/洪水相關",
-                usage: "描述水災情況"
-            },
-            ayaw: {
-                amis: "ayaw kiso sakolayay",
-                pronunciation: "ah-YAW kee-so sa-ko-LAI-ai",
-                mandarin: "你要小心",
-                english: "you be careful",
-                context: "安全提醒",
-                usage: "提醒安全注意事項"
-            },
-            kafana: {
-                amis: "kafana'",
-                pronunciation: "ka-fa-NA",
-                mandarin: "食物",
-                english: "food",
-                context: "食物需求",
-                usage: "提供或詢問食物"
-            },
-            fafoy: {
-                amis: "fafoy",
-                pronunciation: "fa-FOI",
-                mandarin: "房子/住所",
-                english: "house/shelter",
-                context: "住所或庇護所",
-                usage: "安排住宿時"
-            }
-        };
-
-        // Enhanced translation dictionary
-        this.translationDictionary = {
-            "masakit": "我很痛",
-            "tabaki ko": "請幫助我",
-            "fangcalay": "醫生",
-            "mafana' ako": "我餓了",
-            "matektek ako": "我口渴",
-            "ina": "阿姨/媽媽",
-            "mama": "爸爸",
-            "kita": "我們",
-            "ranom": "水",
-            "kafana'": "食物",
-            "fafoy": "房子/住所",
-            "ayaw kiso sakolayay": "你要小心",
-            "nga'ay ho": "你好",
-            "naonen han to": "慢走",
-            "pinaon to rakat": "路上小心",
-            "mamaan": "怎麼了"
-        };
 
         // Community resources data
         this.communityResources = {
@@ -142,25 +41,7 @@ class DisasterTranslationApp {
             }
         };
 
-        // Cultural guidelines
-        this.culturalGuidelines = [
-            {
-                title: "尊重的稱呼",
-                content: "使用'ina'（阿姨/媽媽）對阿美族長者女性表示尊重，無論血緣關係"
-            },
-            {
-                title: "包容性語言",
-                content: "'kita'這個詞創造了即時的聯繫，顯示你關心這個人作為你社區的一部分"
-            },
-            {
-                title: "溫暖的告別",
-                content: "在阿美文化中，花時間適當告別很重要 - 匆忙離開可能顯得無禮"
-            },
-            {
-                title: "災難應變溝通",
-                content: "即使在緊急情況下，保持文化敏感性和尊重是建立信任的關鍵"
-            }
-        ];
+
 
         // Settings
         this.settings = {
@@ -248,54 +129,9 @@ class DisasterTranslationApp {
         }
     }
 
-    // Load text-to-speech voices
-    loadVoices() {
-        const loadVoicesWhenAvailable = () => {
-            this.voices = this.speechSynthesis.getVoices();
-            if (this.voices.length > 0) {
-                console.log('🎤 Voices loaded:', this.voices.length);
-            }
-        };
 
-        loadVoicesWhenAvailable();
-        if (this.speechSynthesis.onvoiceschanged !== undefined) {
-            this.speechSynthesis.onvoiceschanged = loadVoicesWhenAvailable;
-        }
-    }
 
-    // Enhanced text-to-speech function
-    speakText(text, lang = 'zh-TW', rate = 0.8, pitch = 1.0) {
-        if (!this.settings.soundEnabled) return;
-
-        // Cancel any ongoing speech
-        this.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = lang;
-        utterance.rate = rate;
-        utterance.pitch = pitch;
-
-        // Find appropriate voice
-        const voice = this.voices.find(v => v.lang.includes(lang.split('-')[0]));
-        if (voice) {
-            utterance.voice = voice;
-        }
-
-        // Add event listeners for better UX
-        utterance.onstart = () => {
-            console.log('🗣️ Speech started:', text);
-        };
-        
-        utterance.onend = () => {
-            console.log('✅ Speech ended');
-        };
-
-        utterance.onerror = (event) => {
-            console.log('❌ Speech error:', event.error);
-        };
-
-        this.speechSynthesis.speak(utterance);
-    }
+    
 
     // Setup all event listeners
     setupEventListeners() {
