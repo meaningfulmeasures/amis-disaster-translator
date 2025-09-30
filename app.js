@@ -70,7 +70,7 @@ class EmergencyResourceApp {
                 {
                     title: "原住民族語言研究發展中心",
                     description: "官方原住民族語言資源",
-                    url: "https://www.ilrdc.tw/",
+                    url: "https://www.ilrdf.org.tw/",
                     type: "official_resources", 
                     icon: "🏛️",
                     note: "政府官方語言資源和認證翻譯"
@@ -78,7 +78,7 @@ class EmergencyResourceApp {
                 {
                     title: "阿美語詞典",
                     description: "線上阿美語詞典查詢",
-                    url: "https://e-dictionary.ilrdc.tw/",
+                    url: "https://e-dictionary.ilrdf.org.tw/singleSearch?tribeId=e68273b9-1f2b-4c42-8d95-f52189ab24b7&tribeName=%E9%98%BF%E7%BE%8E%E8%AA%9E",
                     type: "dictionary",
                     icon: "📚",
                     note: "官方認證的阿美語詞典"
